@@ -35,6 +35,11 @@ namespace ConsoleApp1
             String userName;
             userName = "honggil";
 
+            /* 기본 자료형(Primitive Types) = 원시자료형 
+             *  컴퓨터가 이해할 수 있는 가장 자연스러운 형태의 데이터
+             *  0과 1로만 표현
+             *  2진수, 10진수
+            */
         }
     }
 }
