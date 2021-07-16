@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +10,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            /*****************************************20210715****************************************************/
             int apple;
             apple = 1;
 
@@ -40,6 +41,48 @@ namespace ConsoleApp1
              *  0과 1로만 표현
              *  2진수, 10진수
             */
+
+
+            /*****************************************20210716****************************************************/
+            //char가 ASCII 코드이기에 묵시적 형변환이 가능하다.
+            //flot double 모두 가능하다.
+            char char1 = 'a';
+
+            int int1 = char1;
+            Console.WriteLine("int1: " + int1);
+
+            long long1 = char1;
+            Console.WriteLine("long1: " + long1);
+
+
+            //명시적 형변환
+            //float 에서 int 로 묵시적 형변환이 불가능한 이유는
+
+            long long2 = long.MaxValue;
+            int long2ToInt = (int)long2;
+
+            Console.WriteLine("long2: " + long2);
+            Console.WriteLine("long2ToInt: " + long2ToInt); // -1
+
+            //소수점이 날아가기에 원 데이터 변형이 일어난다. 그래서 명시적으로 프로그래머가
+            //동의(?)를 해줘야 컴파일러가 정상작동이 가능하다.
+            float float2 = 3.14159f;
+            int float2ToInt = (int)float2;
+
+            Console.WriteLine("float2: " + float2);
+            Console.WriteLine("float2ToInt: " + float2ToInt); // 3
+
+            // 결과값은 4294967295이 나온다
+            // -1은 int의 경우 32bit 이다. 그러면 1111 1111 1111 1111 1111 1111 1111 1111 
+            // 32번째 있는 자리의 1은 -로 인식되기에 -1이다
+            // int는 부호가 있는 정수, uint는 부호없는 정수이다.
+            // 32번째 있는 자리를 -로 인식하지 않아, 1111 1111 1111 1111 1111 1111 1111 1111을 10진수로 변환하면 4294967295가 나온다.
+            int int2 = -1;
+            uint int2ToUInt = (uint)int2;
+
+            Console.WriteLine("int2: " + int2);
+            Console.WriteLine("int2ToUInt: " + int2ToUInt); // 4294967295
         }
     }
+
 }
