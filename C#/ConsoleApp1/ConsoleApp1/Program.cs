@@ -82,6 +82,36 @@ namespace ConsoleApp1
 
             Console.WriteLine("int2: " + int2);
             Console.WriteLine("int2ToUInt: " + int2ToUInt); // 4294967295
+
+
+            /*****************************************20210717****************************************************/
+            int number1 = 10;
+            int number2 = 30;
+            int result1 = number1 / number2;
+            double result2 = number1 / number2;
+            // int / double 일경우 double이 나온다. 컴파일러가 자동으로 double로 처리됨.
+            // 일반적으로 업계에서 둘중에 하나를 double로 둔다. 그런데 보통 분모를 double로 많이 한다. 그런데 분자로 해도 상관없다.
+            double result3 = (double)number1 / (double)number2;
+
+            int number3 = 15;
+            int number4 = 30;
+            int result = number3 % number4;
+
+            // 증가/감소 연산자
+            // num = num + 1; 보다 ++num; 이 더 빠르게 작동한다. 하드웨어적인 부분과 연관이 있어서 num = num + 1; 보다는 ++num;을 사용!
+            int num = 10;
+            char ch = 'b'; // 0x62
+
+            ++num; // 11
+            ++ch; // 0x63
+
+            // 부동소수점형은 안되나?
+            // 3.14 증가시키면?
+            // 부동소수점형은 증가/감소 연산자를 사용하지 않음.
+            // 정수형(char, int, long)에만 사용;
+
+            int num10 = 3;
+            Console.WriteLine(++num10); 
         }
     }
 
