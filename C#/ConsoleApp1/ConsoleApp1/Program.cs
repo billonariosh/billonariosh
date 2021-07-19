@@ -168,6 +168,45 @@ namespace ConsoleApp1
             //op7 0000 0000 0000 0000 0000 0000 0000 1100
             //not 1111 1111 1111 1111 1111 1111 1111 0011 
             //notResult = -13 이됨.
+            
+            /*****************************************20210719****************************************************/
+            /* 
+             * left-shift 연산자
+             * 왼쪽으로 한칸씩 옮김
+             * 
+             */
+
+            int result4 = num10 << 1;
+            Console.WriteLine("result4: " + result4); // 2, 결론은 *2씩 늘어난다고 보면 됨.
+
+            /* right-shift 연산자*/
+
+            int result5 = num10 >> 3;
+            Console.WriteLine("result5: " + result5); //0, 결론은 /2씩 줄어든다고 보면 됨.
+
+            // 부동소수점은 비트 shift가 불가능 함.
+            // int result = result << 2.5f; 
+
+            /*비트플래그*/
+            const int BIT_FLAG_SIZE = 8;
+
+            byte bitFlags = 0;
+
+            byte mask1 = 1 << 2;
+
+            bitFlags |= mask1;
+
+            Console.WriteLine("bitFlags: " + Convert.ToString(bitFlags, 2).PadLeft(BIT_FLAG_SIZE));
+
+            byte mask3 = (1 << 3) | (1 << 5);
+
+            bitFlags |= mask3;
+
+            Console.WriteLine("bitFlags: " + Convert.ToString(bitFlags, 2).PadLeft(BIT_FLAG_SIZE));
+
+            char char2 = 'A';
+            int result10 = char2 | ' ';
+             Console.WriteLine("result10: " + (char) 
         }
     }
 
