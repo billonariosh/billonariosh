@@ -1,0 +1,49 @@
+using System;
+
+/*재귀함수 표현방법 팩토리얼!
+* FOR문을 이용하는것과, 재귀함수를 이용했을때 어떤방법이 더 유리한가?
+* https://billonario.tistory.com/28
+*/
+namespace RecursiveFactorial
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const ulong FACTORIAL = 10;
+
+            Console.WriteLine("NonRecursiveFactorial:");
+            Console.WriteLine(NonRecursiveFactorial(FACTORIAL));
+
+            Console.WriteLine("RecursiveFactorial:");
+            Console.WriteLine(RecursiveFactorial(FACTORIAL));
+        }
+
+        static ulong NonRecursiveFactorial(ulong n)
+        {
+            if (n <= 1)
+            {
+                return 1;
+            }
+
+            uint factorial = 1;
+
+            for (uint i = 2; i <= n; i++)
+            {
+                factorial *= i;
+            }
+
+            return factorial;
+        }
+
+        static ulong RecursiveFactorial(ulong n)
+        {
+            if (n == 0)
+            {
+                return 1;
+            }
+
+            return RecursiveFactorial(n - 1) * n;
+        }
+    }
+}
