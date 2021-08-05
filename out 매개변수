@@ -1,0 +1,4 @@
+c#에서 if문 안에 int.TryParse를 많이 사용함.
+bool 형으로 선언해서 ref인 원본데이터를 변환저장 하는 방식.
+
+https://billonario.tistory.com/33
