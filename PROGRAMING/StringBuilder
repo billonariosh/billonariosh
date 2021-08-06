@@ -1,0 +1,69 @@
+using System;
+using System.Text;
+
+namespace StringBuilderExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const int CAPACITY = 1000;
+            //maxCharCount는 용량확보
+            //StringBuilder <변수명> = new StringBuilder(int maxCharCount);
+            StringBuilder builder = new StringBuilder(CAPACITY);
+            //appendLine은 줄바꿈까지 포함
+            //append는 바로 뒤에 이어 붙히기
+            builder.Append("Hello World!");
+            builder.AppendLine(" Welcome to COMP1500!");
+            builder.AppendLine("Are you having fun yet?");
+
+            Console.WriteLine(builder.ToString());
+
+            builder.Insert(12, " Going to insert this here.");
+
+            Console.WriteLine(builder.ToString());
+
+            builder.Replace(" Going to insert this here.", " And replace this.");
+
+            Console.WriteLine(builder.ToString());
+
+            builder.Remove(12, 19);
+
+            Console.WriteLine(builder.ToString());
+
+            builder.Clear();
+
+            Console.WriteLine(builder.ToString());
+
+            //빌더 내부 총 용량
+            //builder.Capacity;
+            //내부 배열의 총용량을 늘리는 함수 1024까지 늘림
+            builder.EnsureCapacity(1024);
+            //1024까지 늘렸다가 512로 줄이면 용량을 줄이지는 않음.
+            //늘릴때만 사용 가능! (반영가능)
+            builder.EnsureCapacity(512);
+            //한번에 많이 늘려놓는게 좋다.
+            //처음확보해 둔 공간을 다쓰면 자동적으로 내부 공간을 늘린 뒤 모든 데이터를 복사함.
+            //보통 늘릴때 2배를 늘림.(자동으로) 
+            //복사를 안 할수록 좋으므로 처음부터 충분한 공간을 확보필요!
+            //256 512 1024 2048 식으로 용량을 많이 씀
+            StringBuilder BUILDER = new StringBuilder(4096);
+
+            //6 index에 새로운 문자열 and를 삽입
+            builder.Insert(6, "and");
+
+            //치환, p를 b로 바꾸겠다. 
+            builder.Replace('p', 'b');
+            builder.Replace('p', 'B', 3, 3);
+
+            //8번째부터 시작해서 2개 제거
+            builder.Remove(8, 2);
+
+            //임시 문자열을 제거
+            builder.Clear();
+
+            //StringBuilder vs 문자열 합치기
+            //합칠 문자가 많으면 StringBuilder가 유리함. 성능적인 측면에서
+        }
+    }
+}
