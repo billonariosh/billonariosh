@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+
+namespace ListExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // 성능상의 문제로 32개가 넘지 않으면 용량은 정해주고 가는게 좋음.
+            const int ELEMENTS_COUNT = 10;
+            
+            List<int> list = new List<int>();
+            for (int i = 0; i < ELEMENTS_COUNT; i++)
+            {
+                list.Add(i);
+            }
+
+            Console.WriteLine($"[ {string.Join(", ", list)} ]");
+
+            List<int> list2 = new List<int> { 1, 2, 3, 4, 5, 6 };
+
+            Console.WriteLine($"[ {string.Join(", ", list2)} ]");
+
+            Console.WriteLine($"First element: {list[0]}");
+            Console.WriteLine($"Last element: {list[list.Count - 1]}");
+
+            // 색인 2 위치에 2를 삽입.
+            list.Insert(2, 2);
+
+            Console.WriteLine($"[ {string.Join(", ", list)} ]");
+
+            // 처음 찾은 2만 지움. 1개만
+            list.Remove(2);
+
+            Console.WriteLine($"[ {string.Join(", ", list)} ]");
+
+            bool bContains5 = list.Contains(5);
+
+            Console.WriteLine($"Contains 5? {bContains5}");
+
+            bool bContains10 = list.Contains(10);
+
+            Console.WriteLine($"Contains 10? {bContains10}");
+
+            int sum = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                sum += list[i];
+            }
+
+            Console.WriteLine($"Sum: {sum}");
+
+            List<string> names = new List<string> { "John", "Doe", "Dummy", "Little", "Leff", "Pop", "Up" };
+
+            names.Add("Role");
+
+            names.RemoveAt(3);
+
+            names.Add("Pope");
+
+            names.Remove("Doe");
+
+            names.Insert(2, "Richard");
+
+            Console.WriteLine(names[4]);
+        }
+    }
+}
