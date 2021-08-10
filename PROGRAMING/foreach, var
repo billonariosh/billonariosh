@@ -25,6 +25,11 @@ namespace ForEachLoop
             //지역 변수에서만 사용 가능
             //c++에서는 auto라고 표현
             //반드시 선언과 동시에 대입을 해야함.
+            //var는 대입하는 값이 명백하게 자료형을 알 수 있을 때만 사용!
+            //var num = 10;             O
+            //var message = "hello";    O
+            //var weight = GetWeight(); X
+            //foreach문에서 사용하는건 언제나 좋음
             foreach(int i in list)
             {
                 sum += i;
