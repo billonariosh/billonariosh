@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+
+namespace ForEachLoop
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //컬렉션과 같이 쓰는 foreach 매우 유용하게 쓸 수 있다.
+            List<int> list = new List<int>();
+
+            Random random = new Random();
+
+            for (int i = 0; i < 20; i++)
+            {
+                int number = random.Next(0, 10);
+                list.Add(number);
+            }
+
+            int sum = 0;
+            
+            //var 키워드
+            //묵시적 자료형: 컴파일러가 알아서 자료형을 추론해줌
+            //지역 변수에서만 사용 가능
+            //c++에서는 auto라고 표현
+            //반드시 선언과 동시에 대입을 해야함.
+            foreach(int i in list)
+            {
+                sum += i;
+            }
+
+            Console.WriteLine($"Sum: {sum}");
+
+            Console.WriteLine("----------------------------------");
+
+            Dictionary<string, int> dictionary = new Dictionary<string, int>
+            {
+                { "key1",  1 },
+                { "key2",  2 },
+                { "key3",  3 },
+                { "key4",  4 },
+                { "key5",  5 },
+                { "key6",  6 },
+            };
+
+            foreach (KeyValuePair<string, int> entry in dictionary)
+            {
+                Console.WriteLine($"{entry.Key}: {entry.Value}");
+            }
+        }
+    }
+}
