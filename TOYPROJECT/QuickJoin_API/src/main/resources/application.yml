@@ -1,0 +1,47 @@
+server:
+  port: 10230
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:mysql://127.0.0.1:3306/quickjoin?serverTimezone=UTC&useSSL=true&requireSSL=false
+    username:
+    password:
+    hikari:
+      pool-name: hikari-cp
+      maximum-pool-size: 10
+      minimum-idle: 1
+      connection-timeout: 3000
+
+jpa:
+  database-platform: org.hibernate.dialect.H2Dialect
+  hibernate:
+    ddl-auto: create-drop
+  properties:
+    hibernate:
+      format_sql: true
+      show_sql: true
+
+security:
+  oauth2:
+    client:
+      registration:
+        google:
+          client-id: # 발급 받은 client-id #
+          client-secret: # 발급 받은 client-secret #
+          scope: # 필요한 권한 #
+        kakao:
+          client-id: # 발급 받은 client-id #
+          client-secret: # 발급 받은 client-secret #
+          scope: # 필요한 권한 #
+          redirect-uri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
+          authorization-grant-type: authorization_code
+          client-name: kakao
+          client-authentication-method: POST
+      provider:
+        kakao:
+          authorization-uri: https://kauth.kakao.com/oauth/authorize
+          token-uri: https://kauth.kakao.com/oauth/token
+          user-info-uri: https://kapi.kakao.com/v2/user/me
+          user-name-attribute: id
